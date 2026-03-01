@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuage - Liste de nos jeux</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            background-color: #1d1d1d;
+            color: #f5f5f5;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px;
+            background-color: #111;
+            border-bottom: 2px solid #444;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+            color: #eee;
+        }
+
+        nav {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        nav a {
+            color: #f5f5f5;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #ffcc00;
+            color: #1d1d1d;
+        }
+
+        main {
+            padding: 20px;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 70vh;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: #333;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        ul li a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        ul li:hover {
+            background-color: #444;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #111;
+            color: #bbb;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .search-container input {
+            width: 50%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .dropbtn {
+            background-color: #111;
+            color: #f5f5f5;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #444;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            border-radius: 5px;
+            margin-top: 5px;
+            padding-top: 5px;
+        }
+
+        .dropdown-content::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: transparent;
+        }
+
+        .dropdown-content a {
+            color: #ffcc00;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #555;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown .dropbtn:hover {
+            background-color: #ffcc00;
+            color: #1d1d1d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nuage</h1>
+        <h2>Liste de nos jeux</h2>
+    </header>
+
+    <nav>
+        <a href="accueil"><i class="fas fa-home"></i> Accueil</a>
+        <a href="liste_jeux"><i class="fas fa-gamepad"></i> Liste de nos jeux</a>
+        <a href="connexion"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+        <a href="inscription"><i class="fas fa-user-plus"></i> S'inscrire</a>
+    </nav>
+
+    <div class="button-container">
+        <div class="dropdown">
+            <button class="dropbtn">Filtre</button>
+            <div class="dropdown-content">
+                <a href="liste_jeux">Trier par nom</a>
+                <a href="tridateV">Trier par date de parution croissant</a>
+                <a href="tridateJ">Trier par date de parution décroissant</a>
+                <a href="triventes">Trier par nombre de ventes</a>
+                <a href="trinote">Trier par note moyenne</a>
+                <a href="triediteur">Trier par éditeur</a>
+                <a href="tridev">Trier par développeur</a>
+            </div>
+        </div>
+        
+        <div class="dropdown">
+            <button class="dropbtn">Genre</button>
+            <div class="dropdown-content">
+                <a href="Action">Action</a>
+                <a href="Adventure">Adventure</a>
+                <a href="RPG">RPG</a>
+                <a href="Simulation">Simulation</a>
+                <a href="Horror">Horror</a>
+                <a href="Racing">Racing</a>
+                <a href="Strategy">Strategy</a>
+                <a href="Sports">Sports</a>
+                <a href="Puzzle">Puzzle</a>
+                <a href="Platformer">Platformer</a>
+                <a href="Shooter">Shooter</a>
+                <a href="Fighting">Fighting</a>
+                <a href="Survival">Survival</a>
+                <a href="Open World">Open World</a>
+                <a href="Stealth">Stealth</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="search-container">
+            <input type="text" id="searchBar" onkeyup="searchGames()" placeholder="Rechercher un jeu...">
+        </div>
+        <p>Cliquez sur le jeu pour avoir plus d'informations.</p>
+        <ul id="gameList">
+            {% for jeu in jeux %}
+            <li><a href="liste_jeux/{{jeu}}">{{jeu}}</a></li>
+            {% endfor %}
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Nuage. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        function searchGames() {
+            let input = document.getElementById('searchBar').value.toLowerCase();
+            let ul = document.getElementById('gameList');
+            let li = ul.getElementsByTagName('li');
+
+            for (let i = 0; i < li.length; i++) {
+                let a = li[i].getElementsByTagName('a')[0];
+                let txtValue = a.textContent || a.innerText;
+
+                if (txtValue.toLowerCase().indexOf(input) > -1) {
+                    li[i].style.display = '';
+                } else {
+                    li[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

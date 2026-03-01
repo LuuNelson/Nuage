@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuage - {{header}}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            background-color: #1d1d1d;
+            color: #f5f5f5;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px;
+            background-color: #111;
+            border-bottom: 2px solid #444;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+            color: #eee;
+        }
+
+        a {
+            color: #ffcc00;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        nav a {
+            color: #f5f5f5;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #ffcc00;
+            color: #1d1d1d;
+        }
+
+        main {
+            padding: 20px;
+            min-height: 70vh;
+        }
+
+        form {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            width: 50%;
+        }
+
+        form p {
+            color: #ffcc00;
+        }
+
+        form input[type="text"],
+        form input[type="number"],
+        form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #ffcc00;
+            color: #1d1d1d;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            margin: 10px 0;
+        }
+
+        button:hover {
+            background-color: #e5b700;
+            transform: scale(1.05);
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #111;
+            color: #bbb;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .button {
+            color: #f5f5f5;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: 700;
+            display: inline-block;
+            background-color: #ffcc00;
+            color: #1d1d1d;
+        }
+
+        .button:hover {
+            background-color: #e5b700;
+            color: #000;
+        }
+
+        .button i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Nuage</h1>
+        <h2>{{titre}}</h2>
+    </header>
+
+    <form method="post" action="verachat">
+        <p>Voulez-vous vraiment acheter le jeu {{jeu}} au prix de {{prix}} $ ?</p>
+
+        <button type="submit" name="Aoui">Oui</button>
+        <button type="submit" name="Anon">Non</button>
+    </form>
+    <p><a href="verachat" class="button"><i class="fas fa-arrow-left"></i> Retour</a></p>
+    <footer>
+        <p>&copy; 2023 Nuage. Tous droits réservés.</p>
+    </footer>
+</body>
+
+</html>

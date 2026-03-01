@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuage - Bibliothèque de Jeux Vidéo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+        body {
+            background-color: #1d1d1d;
+            color: #f5f5f5;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px;
+            background-color: #111;
+            border-bottom: 2px solid #444;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+            color: #eee;
+        }
+
+        nav {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        nav a {
+            color: #f5f5f5;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #ffcc00;
+            color: #1d1d1d;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 70vh;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #111;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            color: #bbb;
+        }
+
+        .cta-button {
+            background-color: #ffcc00;
+            color: #1d1d1d;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1em;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #e5b700;
+            transform: scale(1.05);
+        }
+
+        .cta-button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nuage</h1>
+        <h2>Bibliothèque de jeux vidéo</h2>
+    </header>
+
+    <nav>
+        <a href="accueil"><i class="fas fa-home"></i> Accueil</a>
+        <a href="liste_jeux"><i class="fas fa-gamepad"></i> Liste de nos jeux</a>
+        <a href="connexion"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+        <a href="inscription"><i class="fas fa-user-plus"></i> S'inscrire</a>
+    </nav>
+
+    <main>
+        <p>Bienvenue dans notre bibliothèque de jeux vidéo. Explorez notre collection et trouvez votre prochain jeu préféré !</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Nuage. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        document.getElementById('exploreButton').addEventListener('click', function() {
+            window.location.href = 'explorer.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuage - Amis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            background-color: #1d1d1d;
+            color: #f5f5f5;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px;
+            background-color: #111;
+            border-bottom: 2px solid #444;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+            color: #eee;
+        }
+
+        nav {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        nav a {
+            color: #f5f5f5;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #ffcc00;
+            color: #1d1d1d;
+        }
+
+        .content {
+            padding: 20px;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 70vh;
+        }
+
+        .friend-info {
+            margin: 40px auto;
+            width: 60%;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            color: #ffcc00;
+        }
+
+        .friend-info ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .friend-info ul li {
+            background-color: #444;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .friend-info ul li:hover {
+            background-color: #555;
+        }
+
+        .centered-message {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .centered-message a {
+            background-color: #ffcc00;
+            color: #1d1d1d;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .centered-message a:hover {
+            background-color: #e5b700;
+            color: #000;
+        }
+
+        .centered-message i {
+            margin-right: 8px;
+        }
+
+        .return-button {
+            background-color: #ffcc00;
+            color: #1d1d1d;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: 700;
+            display: inline-block;
+            margin: 20px 0;
+        }
+
+        .return-button:hover {
+            background-color: #e5b700;
+            color: #000;
+        }
+
+        a {
+            color: #ffcc00;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #e5b700;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #111;
+            color: #bbb;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .search-container input {
+            width: 50%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .friend-list {
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        .friend-item {
+            background-color: #444;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .friend-item:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nuage</h1>
+        <h2>Ajouter un ami</h2>
+    </header>
+
+    <nav>
+        <a href="/accueil"><i class="fas fa-home"></i> Accueil</a>
+        <a href="/liste_jeux"><i class="fas fa-gamepad"></i> Liste de nos jeux</a>
+        <a href="/jeuxjoueur"><i class="fas fa-user"></i> Mes jeux</a>
+        <a href="/amis"><i class="fas fa-users"></i> Amis</a>
+        <a href="/compte"><i class="fas fa-user-cog"></i> Mon compte</a>
+        <a href="/deconnexion"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+    </nav>
+
+    <div class="content">
+        <div class="centered-message">
+            <a href="demande"><i class="fas fa-envelope"></i> Demandes d'amis envoyées : {{demandes}}{% if demandes > 0 %} Cliquez pour voir !{% endif %}</a>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="searchBar" onkeyup="searchFriends()" placeholder="Rechercher un joueur...">
+        </div>
+        <p>Cliquez sur le joueur pour envoyer une demande d'ami.</p>
+        <div class="friend-info">
+            <ul id="friendList">
+                {% for ami in joueurs %}
+                <li class="friend-item"><a href="ajouter/{{ami}}">{{ ami }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="centered-message">
+            <a href="/amis" class="return-button"><i class="fas fa-arrow-left"></i> Retour</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Nuage. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        function searchFriends() {
+            let input = document.getElementById('searchBar').value.toLowerCase();
+            let ul = document.getElementById('friendList');
+            let li = ul.getElementsByTagName('li');
+
+            for (let i = 0; i < li.length; i++) {
+                let a = li[i].getElementsByTagName('a')[0];
+                let txtValue = a.textContent || a.innerText;
+
+                if (txtValue.toLowerCase().indexOf(input) > -1) {
+                    li[i].style.display = '';
+                } else {
+                    li[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
